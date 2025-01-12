@@ -1,0 +1,36 @@
+export global FilePicker {
+    pure callback pick() -> string;
+}
+
+export component FileForm {
+    property <string> picked_path: "123";
+    VerticalLayout {
+        HorizontalLayout {
+            Rectangle {
+                width: 100px;
+                height: 48px;
+                border-width: 2px;
+                background: gray;
+                TouchArea {
+                    clicked => {
+                        root.picked_path = FilePicker.pick();
+                    }
+                }
+
+                file_path := Text {
+                    text: root.picked_path;
+                }
+            }
+
+            Rectangle {
+                TouchArea { }
+
+                Image {
+                    width: 24px;
+                    height: 24px;
+                    source: @image-url("icons/search.svg");
+                }
+            }
+        }
+    }
+}

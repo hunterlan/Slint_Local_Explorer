@@ -5,6 +5,7 @@ build = "build.rs"
 edition = "2021"
 
 [dependencies]
+rfd = "0.15.2"
 slint = "1.9.0"
 
 [build-dependencies]
